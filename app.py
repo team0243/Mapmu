@@ -4,8 +4,6 @@ import streamlit.components.v1 as components
 
 
 
-  gtag('config', 'G-G8QD9T6X2X');
-</script>
 
 # -------------------------------
 # 🧠 Page Config (SEO + Title)
