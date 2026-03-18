@@ -1,4 +1,6 @@
+st.markdown("""
 <meta name="google-site-verification" content="YUoghyiFHNpBYXYTyp2Ou-HgiasuSYQ1LISKVtIUffs" />
+""", unsafe_allow_html=True)
 
 import streamlit as st
 import streamlit.components.v1 as components
