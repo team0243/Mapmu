@@ -51,12 +51,14 @@ with open("map.html", "r", encoding="utf-8") as f:
 
 import streamlit as st
 
-# ตรวจ mobile แบบง่าย
-is_mobile = st.sidebar.checkbox("📱 Mobile Mode", value=True)
+is_mobile = st.checkbox("📱 Mobile Mode", value=True)
 
-map_height = 500 if is_mobile else 700
-
-components.html(map_html, height=map_height)
+if is_mobile:
+    st.markdown("""
+        <style>
+            section[data-testid="stSidebar"] {display: none;}
+        </style>
+    """, unsafe_allow_html=True)
 
 # -------------------------------
 # 💰 ADS (Below Map)
