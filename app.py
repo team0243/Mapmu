@@ -107,7 +107,7 @@ elif page == "🔒 Privacy":
     เว็บไซต์นี้ไม่มีการเก็บข้อมูลส่วนตัวของผู้ใช้งาน
 
     หากมีข้อสงสัย ติดต่อ:
-    example@email.com
+    kiartisak@kkumail.com
     """)
 
 # -------------------------------
@@ -118,8 +118,8 @@ elif page == "📞 Contact":
     st.title("Contact")
 
     st.markdown("""
-    📧 Email: example@email.com  
-    📱 Line: yourlineid  
+    📧 Email: kiartisak@kkumail.com  
+    📱 Line: Team0243
 
     หากต้องการลงโฆษณา สามารถติดต่อได้
     """)
