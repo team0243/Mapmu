@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8b5e51c70d7e7f950266e1ac1f966ae9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+</head>
+<body>
+    
+    
+<style>
+.leaflet-popup-content-wrapper {
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.leaflet-popup-tip {
+    background: white;
+}
+</style>
+    
+<div style="
+position: fixed;
+bottom: 40px; left: 40px;
+width: 160px;
+background: white;
+padding: 10px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+font-size:14px;
+z-index:9999;
+">
+<b>สายมู</b><br><br>
+💰 โชคลาภ<br>
+❤️ ความรัก<br>
+💼 การงาน<br>
+🙏 บุญบารมี<br>
+🐉 พญานาค
+</div>
+    
+            <div class="folium-map" id="map_8b5e51c70d7e7f950266e1ac1f966ae9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8b5e51c70d7e7f950266e1ac1f966ae9 = L.map(
+                "map_8b5e51c70d7e7f950266e1ac1f966ae9",
+                {
+                    center: [16.442786, 102.826613],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_24b40f84783260fd7fe72f3d113e228f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_24b40f84783260fd7fe72f3d113e228f.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            var marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_fa8387c9023ebd49a6389e836b0b9293 = L.marker(
+                [16.4322, 102.8236],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_0b89c50ac4e0e6e0c31a7ff764cda51d = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [50, 50],
+  "iconAnchor": [25, 50],
+});
+        
+    
+        var popup_dc20d0fd414491221e89122e2370d22e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7e86871c4ca89b0e70d650563bc0be1 = $(`<div id="html_a7e86871c4ca89b0e70d650563bc0be1" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Phra_Mahathat_Kaen_Nakhon_9-st%C3%B6ckige_Stupa_bei_Khon_Kaen_Thailand.JPG/960px-Phra_Mahathat_Kaen_Nakhon_9-st%C3%B6ckige_Stupa_bei_Khon_Kaen_Thailand.JPG"              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">ขอนแก่น</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดหนองแวง</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระธาตุ             </span>         </div>         <div style="font-size:14px;color:#444">พระมหาธาตุแก่นนครศูนย์รวมศรัทธาของชาวขอนแก่น</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="https://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%A7%E0%B8%87_%28%E0%B8%88%E0%B8%B1%E0%B8%87%E0%B8%AB%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%88%E0%B8%99%29" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=16.4322,102.8236"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_dc20d0fd414491221e89122e2370d22e.setContent(html_a7e86871c4ca89b0e70d650563bc0be1);
+            
+        
+
+        marker_fa8387c9023ebd49a6389e836b0b9293.bindPopup(popup_dc20d0fd414491221e89122e2370d22e)
+        ;
+
+        
+    
+    
+            marker_fa8387c9023ebd49a6389e836b0b9293.bindTooltip(
+                `<div>
+                     วัดหนองแวง
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fa8387c9023ebd49a6389e836b0b9293.setIcon(icon_0b89c50ac4e0e6e0c31a7ff764cda51d);
+            
+    
+            var marker_23d22a4b53ec9ee7039c7d2231bd791d = L.marker(
+                [16.5634945, 102.9519],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_e8d035014c85f304b130f0c3903a476f = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [50, 50],
+  "iconAnchor": [25, 50],
+});
+        
+    
+        var popup_26910c6decde4c5fcff598bc4ffc8bb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1459bd860c88b9e38512a843a3b03ef8 = $(`<div id="html_1459bd860c88b9e38512a843a3b03ef8" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src="https://mpics.mgronline.com/pics/Images/567000001742708.JPEG"              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">ขอนแก่น</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดพระธาตุขามแก่น</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระธาตุ             </span>         </div>         <div style="font-size:14px;color:#444">ตั้งอยู่ในวัดเจติยภูมิ ตำบลบ้านขาม สร้างขึ้นประมาณต้นพุทธศตวรรษที่ 25</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="https://kklocal.go.th/travel/detail/6/data.html" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=16.5634945,102.9519"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_26910c6decde4c5fcff598bc4ffc8bb6.setContent(html_1459bd860c88b9e38512a843a3b03ef8);
+            
+        
+
+        marker_23d22a4b53ec9ee7039c7d2231bd791d.bindPopup(popup_26910c6decde4c5fcff598bc4ffc8bb6)
+        ;
+
+        
+    
+    
+            marker_23d22a4b53ec9ee7039c7d2231bd791d.bindTooltip(
+                `<div>
+                     วัดพระธาตุขามแก่น
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_23d22a4b53ec9ee7039c7d2231bd791d.setIcon(icon_e8d035014c85f304b130f0c3903a476f);
+            
+    
+            var marker_82e833a3e6ddd0841e1992e0f77fd1de = L.marker(
+                [17.741, 103.2194],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_346e33427c16aca6f95a31c9a421257f = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_8b4229a2394c22ba87c3c61a05518ecd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d82b25d1a123c1f0b2b5c5d78c796c1e = $(`<div id="html_d82b25d1a123c1f0b2b5c5d78c796c1e" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">อุดรธานี</div>         <div style="font-size:18px;font-weight:bold;color:#222">คำชะโนด</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พญานาค             </span>         </div>         <div style="font-size:14px;color:#444">สถานที่ศักดิ์สิทธิ์เกี่ยวกับพญานาค</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.741,103.2194"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_8b4229a2394c22ba87c3c61a05518ecd.setContent(html_d82b25d1a123c1f0b2b5c5d78c796c1e);
+            
+        
+
+        marker_82e833a3e6ddd0841e1992e0f77fd1de.bindPopup(popup_8b4229a2394c22ba87c3c61a05518ecd)
+        ;
+
+        
+    
+    
+            marker_82e833a3e6ddd0841e1992e0f77fd1de.bindTooltip(
+                `<div>
+                     คำชะโนด
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_82e833a3e6ddd0841e1992e0f77fd1de.setIcon(icon_346e33427c16aca6f95a31c9a421257f);
+            
+    
+            var marker_b53a4146f65577130caa7439e34255bc = L.marker(
+                [16.9458, 104.7246],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_42325600a2fcc710286895d345c223c5 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_59e3cf554eb7f4f9e2f658c7e4fd3971 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19e229686aaa2cd08d4035b5f6831f42 = $(`<div id="html_19e229686aaa2cd08d4035b5f6831f42" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">นครพนม</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดพระธาตุพนม</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระธาตุ             </span>         </div>         <div style="font-size:14px;color:#444">พระธาตุศักดิ์สิทธิ์คู่บ้านคู่เมือง</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=16.9458,104.7246"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_59e3cf554eb7f4f9e2f658c7e4fd3971.setContent(html_19e229686aaa2cd08d4035b5f6831f42);
+            
+        
+
+        marker_b53a4146f65577130caa7439e34255bc.bindPopup(popup_59e3cf554eb7f4f9e2f658c7e4fd3971)
+        ;
+
+        
+    
+    
+            marker_b53a4146f65577130caa7439e34255bc.bindTooltip(
+                `<div>
+                     วัดพระธาตุพนม
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b53a4146f65577130caa7439e34255bc.setIcon(icon_42325600a2fcc710286895d345c223c5);
+            
+    
+            var marker_54c0f47ef9333b934eb86dd33d600d94 = L.marker(
+                [17.404, 104.789],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_ee4f688bfd8b7b07632b966f8a83bffc = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_fb7d96d9dc74bdd2216ec67f8bb1362c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfdccac8ceba03689244b85b27bee602 = $(`<div id="html_dfdccac8ceba03689244b85b27bee602" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">นครพนม</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดมหาธาตุ</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระธาตุ             </span>         </div>         <div style="font-size:14px;color:#444">สถานที่ศักดิ์สิทธิ์ของชาวนครพนม</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.404,104.789"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_fb7d96d9dc74bdd2216ec67f8bb1362c.setContent(html_dfdccac8ceba03689244b85b27bee602);
+            
+        
+
+        marker_54c0f47ef9333b934eb86dd33d600d94.bindPopup(popup_fb7d96d9dc74bdd2216ec67f8bb1362c)
+        ;
+
+        
+    
+    
+            marker_54c0f47ef9333b934eb86dd33d600d94.bindTooltip(
+                `<div>
+                     วัดมหาธาตุ
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_54c0f47ef9333b934eb86dd33d600d94.setIcon(icon_ee4f688bfd8b7b07632b966f8a83bffc);
+            
+    
+            var marker_f1a07e619ffb42a39510d198e3687dce = L.marker(
+                [17.8783, 102.742],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_76401c6caa1ddf1d97fddaede0ccbc2f = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_4d5df9928571119621a2bcd817a89e5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cec9430b83670a44aa47365dee00cb95 = $(`<div id="html_cec9430b83670a44aa47365dee00cb95" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">หนองคาย</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดโพธิ์ชัย</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระพุทธรูป             </span>         </div>         <div style="font-size:14px;color:#444">ที่ประดิษฐานหลวงพ่อพระใส</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.8783,102.742"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_4d5df9928571119621a2bcd817a89e5a.setContent(html_cec9430b83670a44aa47365dee00cb95);
+            
+        
+
+        marker_f1a07e619ffb42a39510d198e3687dce.bindPopup(popup_4d5df9928571119621a2bcd817a89e5a)
+        ;
+
+        
+    
+    
+            marker_f1a07e619ffb42a39510d198e3687dce.bindTooltip(
+                `<div>
+                     วัดโพธิ์ชัย
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f1a07e619ffb42a39510d198e3687dce.setIcon(icon_76401c6caa1ddf1d97fddaede0ccbc2f);
+            
+    
+            var marker_f788f694e7ad3ff66f6af468f5dfa7ed = L.marker(
+                [15.1685, 102.231],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_f45cb4c3a5d4c528876cebef92b6c431 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_bfea0b70ad7cf661c11d0c554ad069da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ccc70b6e3ef9a57fef45fbf9dcf7d2d5 = $(`<div id="html_ccc70b6e3ef9a57fef45fbf9dcf7d2d5" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">นครราชสีมา</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดบ้านไร่</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 หลวงพ่อคูณ             </span>         </div>         <div style="font-size:14px;color:#444">วัดดังของหลวงพ่อคูณ</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=15.1685,102.231"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_bfea0b70ad7cf661c11d0c554ad069da.setContent(html_ccc70b6e3ef9a57fef45fbf9dcf7d2d5);
+            
+        
+
+        marker_f788f694e7ad3ff66f6af468f5dfa7ed.bindPopup(popup_bfea0b70ad7cf661c11d0c554ad069da)
+        ;
+
+        
+    
+    
+            marker_f788f694e7ad3ff66f6af468f5dfa7ed.bindTooltip(
+                `<div>
+                     วัดบ้านไร่
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f788f694e7ad3ff66f6af468f5dfa7ed.setIcon(icon_f45cb4c3a5d4c528876cebef92b6c431);
+            
+    
+            var marker_8f2ff8b352a8ca634f0fb4fabdf5dfda = L.marker(
+                [18.367, 103.673],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_11763f97c2e2323caa619770d55288c8 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_7dd343e041cadf218b8f4850edc240a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7cc0f6bc5d11f660af632a7eb0d3dac5 = $(`<div id="html_7cc0f6bc5d11f660af632a7eb0d3dac5" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">บึงกาฬ</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดอาฮงศิลาวาส</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 แม่น้ำโขง             </span>         </div>         <div style="font-size:14px;color:#444">จุดสะดือแม่น้ำโขง</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=18.367,103.673"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_7dd343e041cadf218b8f4850edc240a1.setContent(html_7cc0f6bc5d11f660af632a7eb0d3dac5);
+            
+        
+
+        marker_8f2ff8b352a8ca634f0fb4fabdf5dfda.bindPopup(popup_7dd343e041cadf218b8f4850edc240a1)
+        ;
+
+        
+    
+    
+            marker_8f2ff8b352a8ca634f0fb4fabdf5dfda.bindTooltip(
+                `<div>
+                     วัดอาฮงศิลาวาส
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f2ff8b352a8ca634f0fb4fabdf5dfda.setIcon(icon_11763f97c2e2323caa619770d55288c8);
+            
+    
+            var marker_d4257aba4c3af25dae6d104760400459 = L.marker(
+                [14.5636, 105.3733],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_ed3a9cfac425ec6c7877b9efca2fc443 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_07357ee5aa1343187335f530a4fd5af0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d98ff8631778f3b265618f8b33934a6d = $(`<div id="html_d98ff8631778f3b265618f8b33934a6d" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">อุบลราชธานี</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดสิรินธรวรารามภูพร้าว</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดเรืองแสง             </span>         </div>         <div style="font-size:14px;color:#444">วัดเรืองแสงชื่อดัง</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=14.5636,105.3733"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_07357ee5aa1343187335f530a4fd5af0.setContent(html_d98ff8631778f3b265618f8b33934a6d);
+            
+        
+
+        marker_d4257aba4c3af25dae6d104760400459.bindPopup(popup_07357ee5aa1343187335f530a4fd5af0)
+        ;
+
+        
+    
+    
+            marker_d4257aba4c3af25dae6d104760400459.bindTooltip(
+                `<div>
+                     วัดสิรินธรวรารามภูพร้าว
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4257aba4c3af25dae6d104760400459.setIcon(icon_ed3a9cfac425ec6c7877b9efca2fc443);
+            
+    
+            var marker_47e897a510044092f741d5b85781bc70 = L.marker(
+                [15.7087, 103.265],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_98568ecf4e3af474802880a3e48f90c3 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_989f234309f9d72e65a9bda87eba7eb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8c6acf36936f4f1a0f675c896199ffc = $(`<div id="html_d8c6acf36936f4f1a0f675c896199ffc" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">มหาสารคาม</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดพระธาตุนาดูน</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระธาตุ             </span>         </div>         <div style="font-size:14px;color:#444">ศูนย์รวมศรัทธาชาวสารคาม</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=15.7087,103.265"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_989f234309f9d72e65a9bda87eba7eb6.setContent(html_d8c6acf36936f4f1a0f675c896199ffc);
+            
+        
+
+        marker_47e897a510044092f741d5b85781bc70.bindPopup(popup_989f234309f9d72e65a9bda87eba7eb6)
+        ;
+
+        
+    
+    
+            marker_47e897a510044092f741d5b85781bc70.bindTooltip(
+                `<div>
+                     วัดพระธาตุนาดูน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47e897a510044092f741d5b85781bc70.setIcon(icon_98568ecf4e3af474802880a3e48f90c3);
+            
+    
+            var marker_10d19f0539aebbd06b86cc20192497c5 = L.marker(
+                [17.4563, 101.373],
+                {
+}
+            ).addTo(marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a);
+        
+    
+        var icon_7c10a523475c0cee5e860d825df316e1 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_1fff5708287480b7472599ba65c1c545 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b7c337427f33d7db82e6cb4114dbe76c = $(`<div id="html_b7c337427f33d7db82e6cb4114dbe76c" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">เลย</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดสมเด็จภูเรือมิ่งเมือง</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง โชคลาภ             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 พระใหญ่             </span>         </div>         <div style="font-size:14px;color:#444">พระพุทธรูปใหญ่ภูเรือ</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.4563,101.373"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_1fff5708287480b7472599ba65c1c545.setContent(html_b7c337427f33d7db82e6cb4114dbe76c);
+            
+        
+
+        marker_10d19f0539aebbd06b86cc20192497c5.bindPopup(popup_1fff5708287480b7472599ba65c1c545)
+        ;
+
+        
+    
+    
+            marker_10d19f0539aebbd06b86cc20192497c5.bindTooltip(
+                `<div>
+                     วัดสมเด็จภูเรือมิ่งเมือง
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_10d19f0539aebbd06b86cc20192497c5.setIcon(icon_7c10a523475c0cee5e860d825df316e1);
+            
+    
+            marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            var marker_cluster_f4d03e2e3d5985ce3eab28ca78d65762 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_25ab0e8a36bceecf6ffc5288dd78728f = L.marker(
+                [14.9758, 102.099],
+                {
+}
+            ).addTo(marker_cluster_f4d03e2e3d5985ce3eab28ca78d65762);
+        
+    
+        var icon_bfbbb440b0ca62c958720389e2da0137 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_e6ab49660420f6b5e742d1687ca8c4fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_216e09de68a31ed14b62982ebafe04f7 = $(`<div id="html_216e09de68a31ed14b62982ebafe04f7" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">นครราชสีมา</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดศาลาลอย</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง ความรัก             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดเก่าแก่             </span>         </div>         <div style="font-size:14px;color:#444">วัดสำคัญในตัวเมืองโคราช</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=14.9758,102.099"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_e6ab49660420f6b5e742d1687ca8c4fb.setContent(html_216e09de68a31ed14b62982ebafe04f7);
+            
+        
+
+        marker_25ab0e8a36bceecf6ffc5288dd78728f.bindPopup(popup_e6ab49660420f6b5e742d1687ca8c4fb)
+        ;
+
+        
+    
+    
+            marker_25ab0e8a36bceecf6ffc5288dd78728f.bindTooltip(
+                `<div>
+                     วัดศาลาลอย
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_25ab0e8a36bceecf6ffc5288dd78728f.setIcon(icon_bfbbb440b0ca62c958720389e2da0137);
+            
+    
+            marker_cluster_f4d03e2e3d5985ce3eab28ca78d65762.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            var marker_cluster_dbd2eebe295533e18636158340fddaa0 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_a0da6b059adb7495dbb8a0c88b5b9bdf = L.marker(
+                [16.4585, 102.7617],
+                {
+}
+            ).addTo(marker_cluster_dbd2eebe295533e18636158340fddaa0);
+        
+    
+        var icon_bbd8a65fdaf2da1c75d7c16854713342 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [50, 50],
+  "iconAnchor": [25, 50],
+});
+        
+    
+        var popup_56925d50613cca4f1ae5944a95f20306 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d111577de95c0c28747351c0767faee5 = $(`<div id="html_d111577de95c0c28747351c0767faee5" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">ขอนแก่น</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดไชยศรี</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง การงาน             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดโบราณ             </span>         </div>         <div style="font-size:14px;color:#444">วัดเก่าแก่มีสิมอีสานโบราณ</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=16.4585,102.7617"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_56925d50613cca4f1ae5944a95f20306.setContent(html_d111577de95c0c28747351c0767faee5);
+            
+        
+
+        marker_a0da6b059adb7495dbb8a0c88b5b9bdf.bindPopup(popup_56925d50613cca4f1ae5944a95f20306)
+        ;
+
+        
+    
+    
+            marker_a0da6b059adb7495dbb8a0c88b5b9bdf.bindTooltip(
+                `<div>
+                     วัดไชยศรี
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a0da6b059adb7495dbb8a0c88b5b9bdf.setIcon(icon_bbd8a65fdaf2da1c75d7c16854713342);
+            
+    
+            var marker_4d44bb0e59d331b81200fe37106a77de = L.marker(
+                [17.4138, 102.785],
+                {
+}
+            ).addTo(marker_cluster_dbd2eebe295533e18636158340fddaa0);
+        
+    
+        var icon_d9d4048970d68a32371eda4c44913b52 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_66c23672a3a8b32d7b85d33ba3baf62c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74df36fdfe9e2b526e7e90c802cf1080 = $(`<div id="html_74df36fdfe9e2b526e7e90c802cf1080" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">อุดรธานี</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดโพธิสมภรณ์</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง การงาน             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดสำคัญ             </span>         </div>         <div style="font-size:14px;color:#444">พระอารามหลวงใจกลางเมือง</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.4138,102.785"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_66c23672a3a8b32d7b85d33ba3baf62c.setContent(html_74df36fdfe9e2b526e7e90c802cf1080);
+            
+        
+
+        marker_4d44bb0e59d331b81200fe37106a77de.bindPopup(popup_66c23672a3a8b32d7b85d33ba3baf62c)
+        ;
+
+        
+    
+    
+            marker_4d44bb0e59d331b81200fe37106a77de.bindTooltip(
+                `<div>
+                     วัดโพธิสมภรณ์
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4d44bb0e59d331b81200fe37106a77de.setIcon(icon_d9d4048970d68a32371eda4c44913b52);
+            
+    
+            marker_cluster_dbd2eebe295533e18636158340fddaa0.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            var marker_cluster_69501daaba5d1dbdd11ab8536cb4debd = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_70c8e07d2f6655b0f956b959b5f6d333 = L.marker(
+                [17.4455, 102.5814],
+                {
+}
+            ).addTo(marker_cluster_69501daaba5d1dbdd11ab8536cb4debd);
+        
+    
+        var icon_c29dfc6a464f951106bc683c6eb73a95 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_5a7413f7275daedc56680282f8942df1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a37391343ce41f2cb48ebe5ec95eb7f7 = $(`<div id="html_a37391343ce41f2cb48ebe5ec95eb7f7" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">อุดรธานี</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดป่าภูก้อน</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง บุญบารมี             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดภูเขา             </span>         </div>         <div style="font-size:14px;color:#444">วัดสวยงามกลางภูเขา</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.4455,102.5814"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_5a7413f7275daedc56680282f8942df1.setContent(html_a37391343ce41f2cb48ebe5ec95eb7f7);
+            
+        
+
+        marker_70c8e07d2f6655b0f956b959b5f6d333.bindPopup(popup_5a7413f7275daedc56680282f8942df1)
+        ;
+
+        
+    
+    
+            marker_70c8e07d2f6655b0f956b959b5f6d333.bindTooltip(
+                `<div>
+                     วัดป่าภูก้อน
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_70c8e07d2f6655b0f956b959b5f6d333.setIcon(icon_c29dfc6a464f951106bc683c6eb73a95);
+            
+    
+            var marker_b2257663d7c6a36141401813a945f7d3 = L.marker(
+                [17.9653, 102.487],
+                {
+}
+            ).addTo(marker_cluster_69501daaba5d1dbdd11ab8536cb4debd);
+        
+    
+        var icon_59498ee48dab6aeedbc06e32f2342f2b = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_827a81199ae106be49100001424abe36 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_98a8c3cee07356d534f3aac2a2c7978b = $(`<div id="html_98a8c3cee07356d534f3aac2a2c7978b" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">หนองคาย</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดหินหมากเป้ง</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง บุญบารมี             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดป่า             </span>         </div>         <div style="font-size:14px;color:#444">วัดสายวิปัสสนา</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.9653,102.487"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_827a81199ae106be49100001424abe36.setContent(html_98a8c3cee07356d534f3aac2a2c7978b);
+            
+        
+
+        marker_b2257663d7c6a36141401813a945f7d3.bindPopup(popup_827a81199ae106be49100001424abe36)
+        ;
+
+        
+    
+    
+            marker_b2257663d7c6a36141401813a945f7d3.bindTooltip(
+                `<div>
+                     วัดหินหมากเป้ง
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b2257663d7c6a36141401813a945f7d3.setIcon(icon_59498ee48dab6aeedbc06e32f2342f2b);
+            
+    
+            var marker_5c92b5b54e200d0a354e0b3a58abd77d = L.marker(
+                [18.2716, 103.968],
+                {
+}
+            ).addTo(marker_cluster_69501daaba5d1dbdd11ab8536cb4debd);
+        
+    
+        var icon_e971050782a4cbff29f2ed64932a2115 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_2fb3f9267ed97a1251ba961a3eda86f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b1c739049e3ba037a47447971c5e7c5 = $(`<div id="html_3b1c739049e3ba037a47447971c5e7c5" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">บึงกาฬ</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดภูทอก</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง บุญบารมี             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 ภูเขาศักดิ์สิทธิ์             </span>         </div>         <div style="font-size:14px;color:#444">สถานที่ปฏิบัติธรรมชื่อดัง</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=18.2716,103.968"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_2fb3f9267ed97a1251ba961a3eda86f3.setContent(html_3b1c739049e3ba037a47447971c5e7c5);
+            
+        
+
+        marker_5c92b5b54e200d0a354e0b3a58abd77d.bindPopup(popup_2fb3f9267ed97a1251ba961a3eda86f3)
+        ;
+
+        
+    
+    
+            marker_5c92b5b54e200d0a354e0b3a58abd77d.bindTooltip(
+                `<div>
+                     วัดภูทอก
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c92b5b54e200d0a354e0b3a58abd77d.setIcon(icon_e971050782a4cbff29f2ed64932a2115);
+            
+    
+            var marker_51869ab6659e01654a9daa6f0ca496d7 = L.marker(
+                [15.1492, 104.869],
+                {
+}
+            ).addTo(marker_cluster_69501daaba5d1dbdd11ab8536cb4debd);
+        
+    
+        var icon_c2ad7e92cfd0c6e5840dc2b4cd86446f = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_b6289da0c0f5f8946cf36e87bb2f1534 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68f11333c1ecf9d4b2a1485d6809ac48 = $(`<div id="html_68f11333c1ecf9d4b2a1485d6809ac48" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">อุบลราชธานี</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดหนองป่าพง</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง บุญบารมี             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดป่า             </span>         </div>         <div style="font-size:14px;color:#444">วัดของหลวงปู่ชา</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=15.1492,104.869"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_b6289da0c0f5f8946cf36e87bb2f1534.setContent(html_68f11333c1ecf9d4b2a1485d6809ac48);
+            
+        
+
+        marker_51869ab6659e01654a9daa6f0ca496d7.bindPopup(popup_b6289da0c0f5f8946cf36e87bb2f1534)
+        ;
+
+        
+    
+    
+            marker_51869ab6659e01654a9daa6f0ca496d7.bindTooltip(
+                `<div>
+                     วัดหนองป่าพง
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_51869ab6659e01654a9daa6f0ca496d7.setIcon(icon_c2ad7e92cfd0c6e5840dc2b4cd86446f);
+            
+    
+            var marker_f34af4818f10769c5d0407832a15fc5e = L.marker(
+                [17.1372, 101.671],
+                {
+}
+            ).addTo(marker_cluster_69501daaba5d1dbdd11ab8536cb4debd);
+        
+    
+        var icon_a7ede0eb76b29fe5a7bb819486f017b4 = L.icon({
+  "iconUrl": "https://raw.githubusercontent.com/team0243/map_test/refs/heads/main/pin.png",
+  "iconSize": [35, 35],
+  "iconAnchor": [17, 35],
+});
+        
+    
+        var popup_e0946a65424f7b597deab5a69f1b2016 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_85c8795032dfd821d4c0881fcb46d8ee = $(`<div id="html_85c8795032dfd821d4c0881fcb46d8ee" style="width: 100.0%; height: 100.0%;"><div style="width:260px;font-family:Prompt,Arial">         <img src=""              style="width:100%;height:150px;object-fit:cover;border-radius:10px">         <div style="margin-top:6px;color:#777;font-size:13px">เลย</div>         <div style="font-size:18px;font-weight:bold;color:#222">วัดป่าภูหายหลง</div>         <div style="margin:6px 0">             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">                 เด่นเรื่อง บุญบารมี             </span>             <span style="background:#e8f2ff;padding:3px 8px;border-radius:6px;font-size:12px;color:#0057b8">                 วัดภูเขา             </span>         </div>         <div style="font-size:14px;color:#444">วัดสวยกลางภูเขา</div>          <div style="margin-top:8px;display:flex;gap:6px">             <a href="" target="_blank"                style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                ดูเพิ่มเติม             </a>              <a href="https://www.google.com/maps?q=17.1372,101.671"                target="_blank"                style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">                นำทาง             </a>         </div>     </div></div>`)[0];
+                popup_e0946a65424f7b597deab5a69f1b2016.setContent(html_85c8795032dfd821d4c0881fcb46d8ee);
+            
+        
+
+        marker_f34af4818f10769c5d0407832a15fc5e.bindPopup(popup_e0946a65424f7b597deab5a69f1b2016)
+        ;
+
+        
+    
+    
+            marker_f34af4818f10769c5d0407832a15fc5e.bindTooltip(
+                `<div>
+                     วัดป่าภูหายหลง
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f34af4818f10769c5d0407832a15fc5e.setIcon(icon_a7ede0eb76b29fe5a7bb819486f017b4);
+            
+    
+            marker_cluster_69501daaba5d1dbdd11ab8536cb4debd.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            var marker_cluster_7b35ec837b2374ee8c82091a9abc0143 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_7b35ec837b2374ee8c82091a9abc0143.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+        function geo_json_ab6257810eb24137c0f1165eb41e6b11_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+};
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_ab6257810eb24137c0f1165eb41e6b11_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_ab6257810eb24137c0f1165eb41e6b11 = L.geoJson(null, {
+                onEachFeature: geo_json_ab6257810eb24137c0f1165eb41e6b11_onEachFeature,
+            
+                pointToLayer: geo_json_ab6257810eb24137c0f1165eb41e6b11_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_ab6257810eb24137c0f1165eb41e6b11_add (data) {
+            geo_json_ab6257810eb24137c0f1165eb41e6b11
+                .addData(data);
+        }
+            geo_json_ab6257810eb24137c0f1165eb41e6b11_add({"features": [{"geometry": {"coordinates": ["102.8236", "16.4322"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e2b\u0e19\u0e2d\u0e07\u0e41\u0e27\u0e07"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.9519", "16.5634945"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e1e\u0e23\u0e30\u0e18\u0e32\u0e15\u0e38\u0e02\u0e32\u0e21\u0e41\u0e01\u0e48\u0e19"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.7617", "16.4585"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e44\u0e0a\u0e22\u0e28\u0e23\u0e35"}, "type": "Feature"}, {"geometry": {"coordinates": ["103.2194", "17.741"], "type": "Point"}, "properties": {"name": "\u0e04\u0e33\u0e0a\u0e30\u0e42\u0e19\u0e14"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.5814", "17.4455"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e1b\u0e48\u0e32\u0e20\u0e39\u0e01\u0e49\u0e2d\u0e19"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.785", "17.4138"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e42\u0e1e\u0e18\u0e34\u0e2a\u0e21\u0e20\u0e23\u0e13\u0e4c"}, "type": "Feature"}, {"geometry": {"coordinates": ["104.7246", "16.9458"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e1e\u0e23\u0e30\u0e18\u0e32\u0e15\u0e38\u0e1e\u0e19\u0e21"}, "type": "Feature"}, {"geometry": {"coordinates": ["104.789", "17.404"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e21\u0e2b\u0e32\u0e18\u0e32\u0e15\u0e38"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.742", "17.8783"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e42\u0e1e\u0e18\u0e34\u0e4c\u0e0a\u0e31\u0e22"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.487", "17.9653"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e2b\u0e34\u0e19\u0e2b\u0e21\u0e32\u0e01\u0e40\u0e1b\u0e49\u0e07"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.231", "15.1685"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e1a\u0e49\u0e32\u0e19\u0e44\u0e23\u0e48"}, "type": "Feature"}, {"geometry": {"coordinates": ["102.099", "14.9758"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e28\u0e32\u0e25\u0e32\u0e25\u0e2d\u0e22"}, "type": "Feature"}, {"geometry": {"coordinates": ["103.968", "18.2716"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e20\u0e39\u0e17\u0e2d\u0e01"}, "type": "Feature"}, {"geometry": {"coordinates": ["103.673", "18.367"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e2d\u0e32\u0e2e\u0e07\u0e28\u0e34\u0e25\u0e32\u0e27\u0e32\u0e2a"}, "type": "Feature"}, {"geometry": {"coordinates": ["105.3733", "14.5636"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e2a\u0e34\u0e23\u0e34\u0e19\u0e18\u0e23\u0e27\u0e23\u0e32\u0e23\u0e32\u0e21\u0e20\u0e39\u0e1e\u0e23\u0e49\u0e32\u0e27"}, "type": "Feature"}, {"geometry": {"coordinates": ["104.869", "15.1492"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e2b\u0e19\u0e2d\u0e07\u0e1b\u0e48\u0e32\u0e1e\u0e07"}, "type": "Feature"}, {"geometry": {"coordinates": ["103.265", "15.7087"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e1e\u0e23\u0e30\u0e18\u0e32\u0e15\u0e38\u0e19\u0e32\u0e14\u0e39\u0e19"}, "type": "Feature"}, {"geometry": {"coordinates": ["101.671", "17.1372"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e1b\u0e48\u0e32\u0e20\u0e39\u0e2b\u0e32\u0e22\u0e2b\u0e25\u0e07"}, "type": "Feature"}, {"geometry": {"coordinates": ["101.373", "17.4563"], "type": "Point"}, "properties": {"name": "\u0e27\u0e31\u0e14\u0e2a\u0e21\u0e40\u0e14\u0e47\u0e08\u0e20\u0e39\u0e40\u0e23\u0e37\u0e2d\u0e21\u0e34\u0e48\u0e07\u0e40\u0e21\u0e37\u0e2d\u0e07"}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_ab6257810eb24137c0f1165eb41e6b11.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+            geo_json_ab6257810eb24137c0f1165eb41e6b11.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            var geo_json_ab6257810eb24137c0f1165eb41e6b11searchControl = new L.Control.Search({
+                layer: geo_json_ab6257810eb24137c0f1165eb41e6b11,
+                
+                propertyName: 'name',
+                
+                collapsed: false,
+                textPlaceholder: '🔍 ค้นหาวัด...',
+                position:'topleft',
+            
+                initial: false,
+                
+                hideMarkerOnCollapse: true
+            
+                });
+                geo_json_ab6257810eb24137c0f1165eb41e6b11searchControl.on('search:locationfound', function(e) {
+                    geo_json_ab6257810eb24137c0f1165eb41e6b11.setStyle(function(feature){
+                        return feature.properties.style
+                    })
+                    
+                    if(e.layer._popup)
+                        e.layer.openPopup();
+                })
+                geo_json_ab6257810eb24137c0f1165eb41e6b11searchControl.on('search:collapsed', function(e) {
+                        geo_json_ab6257810eb24137c0f1165eb41e6b11.setStyle(function(feature){
+                            return feature.properties.style
+                    });
+                });
+            map_8b5e51c70d7e7f950266e1ac1f966ae9.addControl( geo_json_ab6257810eb24137c0f1165eb41e6b11searchControl );
+
+        
+    
+            var locate_control_692229401b37f42477689ef507a3f870 = L.control.locate(
+                {"position": "topleft"}
+            ).addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+            
+        
+    
+            var layer_control_4ccf9532f9d1fd3ff0ebe2762df1f498_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_24b40f84783260fd7fe72f3d113e228f,
+                },
+                overlays :  {
+                    "\u0e42\u0e0a\u0e04\u0e25\u0e32\u0e20 \ud83d\udcb0" : marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a,
+                    "\u0e04\u0e27\u0e32\u0e21\u0e23\u0e31\u0e01 \u2764\ufe0f" : marker_cluster_f4d03e2e3d5985ce3eab28ca78d65762,
+                    "\u0e01\u0e32\u0e23\u0e07\u0e32\u0e19 \ud83d\udcbc" : marker_cluster_dbd2eebe295533e18636158340fddaa0,
+                    "\u0e1a\u0e38\u0e0d\u0e1a\u0e32\u0e23\u0e21\u0e35 \ud83d\ude4f" : marker_cluster_69501daaba5d1dbdd11ab8536cb4debd,
+                    "\u0e1e\u0e0d\u0e32\u0e19\u0e32\u0e04 \ud83d\udc09" : marker_cluster_7b35ec837b2374ee8c82091a9abc0143,
+                    "SearchLayer" : geo_json_ab6257810eb24137c0f1165eb41e6b11,
+                },
+            };
+            let layer_control_4ccf9532f9d1fd3ff0ebe2762df1f498 = L.control.layers(
+                layer_control_4ccf9532f9d1fd3ff0ebe2762df1f498_layers.base_layers,
+                layer_control_4ccf9532f9d1fd3ff0ebe2762df1f498_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+
+        
+    
+            tile_layer_24b40f84783260fd7fe72f3d113e228f.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+                marker_fa8387c9023ebd49a6389e836b0b9293.setIcon(icon_0b89c50ac4e0e6e0c31a7ff764cda51d);
+            
+    
+                marker_23d22a4b53ec9ee7039c7d2231bd791d.setIcon(icon_e8d035014c85f304b130f0c3903a476f);
+            
+    
+                marker_82e833a3e6ddd0841e1992e0f77fd1de.setIcon(icon_346e33427c16aca6f95a31c9a421257f);
+            
+    
+                marker_b53a4146f65577130caa7439e34255bc.setIcon(icon_42325600a2fcc710286895d345c223c5);
+            
+    
+                marker_54c0f47ef9333b934eb86dd33d600d94.setIcon(icon_ee4f688bfd8b7b07632b966f8a83bffc);
+            
+    
+                marker_f1a07e619ffb42a39510d198e3687dce.setIcon(icon_76401c6caa1ddf1d97fddaede0ccbc2f);
+            
+    
+                marker_f788f694e7ad3ff66f6af468f5dfa7ed.setIcon(icon_f45cb4c3a5d4c528876cebef92b6c431);
+            
+    
+                marker_8f2ff8b352a8ca634f0fb4fabdf5dfda.setIcon(icon_11763f97c2e2323caa619770d55288c8);
+            
+    
+                marker_d4257aba4c3af25dae6d104760400459.setIcon(icon_ed3a9cfac425ec6c7877b9efca2fc443);
+            
+    
+                marker_47e897a510044092f741d5b85781bc70.setIcon(icon_98568ecf4e3af474802880a3e48f90c3);
+            
+    
+                marker_10d19f0539aebbd06b86cc20192497c5.setIcon(icon_7c10a523475c0cee5e860d825df316e1);
+            
+    
+            marker_cluster_7e6c7d95f5d89eabd3de0315d66b4a2a.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+                marker_25ab0e8a36bceecf6ffc5288dd78728f.setIcon(icon_bfbbb440b0ca62c958720389e2da0137);
+            
+    
+            marker_cluster_f4d03e2e3d5985ce3eab28ca78d65762.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+                marker_a0da6b059adb7495dbb8a0c88b5b9bdf.setIcon(icon_bbd8a65fdaf2da1c75d7c16854713342);
+            
+    
+                marker_4d44bb0e59d331b81200fe37106a77de.setIcon(icon_d9d4048970d68a32371eda4c44913b52);
+            
+    
+            marker_cluster_dbd2eebe295533e18636158340fddaa0.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+                marker_70c8e07d2f6655b0f956b959b5f6d333.setIcon(icon_c29dfc6a464f951106bc683c6eb73a95);
+            
+    
+                marker_b2257663d7c6a36141401813a945f7d3.setIcon(icon_59498ee48dab6aeedbc06e32f2342f2b);
+            
+    
+                marker_5c92b5b54e200d0a354e0b3a58abd77d.setIcon(icon_e971050782a4cbff29f2ed64932a2115);
+            
+    
+                marker_51869ab6659e01654a9daa6f0ca496d7.setIcon(icon_c2ad7e92cfd0c6e5840dc2b4cd86446f);
+            
+    
+                marker_f34af4818f10769c5d0407832a15fc5e.setIcon(icon_a7ede0eb76b29fe5a7bb819486f017b4);
+            
+    
+            marker_cluster_69501daaba5d1dbdd11ab8536cb4debd.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            marker_cluster_7b35ec837b2374ee8c82091a9abc0143.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+    
+            geo_json_ab6257810eb24137c0f1165eb41e6b11.addTo(map_8b5e51c70d7e7f950266e1ac1f966ae9);
+        
+</script>
+</html>
