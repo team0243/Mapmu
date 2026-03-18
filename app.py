@@ -11,7 +11,7 @@ m = folium.Map(
 )
 
 # -------------------------------
-# 2️⃣ CSS Popup (🔥 Mobile Friendly)
+# 2️⃣ CSS Popup
 # -------------------------------
 custom_css = """
 <style>
@@ -19,21 +19,8 @@ custom_css = """
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
-
-/* ✅ ขยาย font มือถือ */
-.leaflet-popup-content {
-    font-size: 16px;
-}
-
-/* ✅ ปุ่มกดง่ายขึ้น */
-.leaflet-popup-content a {
-    padding: 8px 10px;
-    display: inline-block;
-}
-
-/* ✅ Popup ไม่ล้นจอ */
-.leaflet-popup-content-wrapper {
-    max-width: 280px;
+.leaflet-popup-tip {
+    background: white;
 }
 </style>
 """
@@ -65,7 +52,7 @@ layers = {
 }
 
 # -------------------------------
-# 5️⃣ Loop Marker
+# 5️⃣ Loop Marker (ตัวจริง)
 # -------------------------------
 for index, row in df.iterrows():
 
@@ -78,14 +65,11 @@ for index, row in df.iterrows():
         icon_size = (35, 35)
         icon_anchor = (17, 35)
 
-    popup_html = f"""
-    <div style="width:260px;font-family:Prompt,Arial">
+    popup_html = f"""<div style="width:260px;font-family:Prompt,Arial">
         <img src="{row['image']}"
              style="width:100%;height:150px;object-fit:cover;border-radius:10px">
-
         <div style="margin-top:6px;color:#777;font-size:13px">{row['province']}</div>
         <div style="font-size:18px;font-weight:bold;color:#222">{row['name']}</div>
-
         <div style="margin:6px 0">
             <span style="background:#ffe9b3;padding:3px 8px;border-radius:6px;font-size:12px;color:#9c6b00">
                 เด่นเรื่อง {row['luck_type']}
@@ -94,27 +78,21 @@ for index, row in df.iterrows():
                 {row['type']}
             </span>
         </div>
-
         <div style="font-size:14px;color:#444">{row['description']}</div>
 
-        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-
+        <div style="margin-top:8px;display:flex;gap:6px">
             <a href="{row['web_project_path']}" target="_blank"
-               style="text-decoration:none;background:#ff6a00;color:white;
-               padding:8px 12px;border-radius:6px;font-size:14px">
+               style="text-decoration:none;background:#ff6a00;color:white;padding:5px 8px;border-radius:6px;font-size:13px">
                ดูเพิ่มเติม
             </a>
 
             <a href="https://www.google.com/maps?q={row['lat']},{row['lng']}"
                target="_blank"
-               style="text-decoration:none;background:#1d4ed8;color:white;
-               padding:8px 12px;border-radius:6px;font-size:14px">
-               📍 นำทาง
+               style="text-decoration:none;background:#1d4ed8;color:white;padding:5px 8px;border-radius:6px;font-size:13px">
+               นำทาง
             </a>
-
         </div>
-    </div>
-    """
+    </div>"""
 
     marker = folium.Marker(
         location=[row['lat'], row['lng']],
@@ -127,7 +105,7 @@ for index, row in df.iterrows():
         )
     )
 
-    # Layer mapping
+    # ใส่ Layer
     if row['luck_type'] == "โชคลาภ":
         marker.add_to(layers["โชคลาภ 💰"])
     elif row['luck_type'] == "ความรัก":
@@ -142,14 +120,16 @@ for index, row in df.iterrows():
         marker.add_to(layers["บุญบารมี 🙏"])
 
 # -------------------------------
-# 6️⃣ Search
+# 6️⃣ GeoJson Search (ซ่อน marker)
 # -------------------------------
 features = []
 
 for index, row in df.iterrows():
     features.append({
         "type": "Feature",
-        "properties": {"name": str(row["name"])},
+        "properties": {
+            "name": str(row["name"]),
+        },
         "geometry": {
             "type": "Point",
             "coordinates": [row["lng"], row["lat"]],
@@ -157,11 +137,21 @@ for index, row in df.iterrows():
     })
 
 geojson = folium.GeoJson(
-    {"type": "FeatureCollection", "features": features},
+    {
+        "type": "FeatureCollection",
+        "features": features
+    },
     name="SearchLayer",
-    marker=folium.CircleMarker(radius=0, opacity=0, fill_opacity=0)
+    marker=folium.CircleMarker(
+        radius=0,
+        opacity=0,
+        fill_opacity=0
+    )
 ).add_to(m)
 
+# -------------------------------
+# 7️⃣ Search
+# -------------------------------
 Search(
     layer=geojson,
     search_label='name',
@@ -171,28 +161,28 @@ Search(
 ).add_to(m)
 
 # -------------------------------
-# 7️⃣ GPS
+# 8️⃣ GPS
 # -------------------------------
 LocateControl(position='topleft').add_to(m)
 
 # -------------------------------
-# 8️⃣ Layer Control
+# 9️⃣ Layer Control (ต้องสุดท้าย)
 # -------------------------------
 folium.LayerControl(position='topright', collapsed=False).add_to(m)
 
 # -------------------------------
-# 9️⃣ Legend
+# 🔟 Legend
 # -------------------------------
 legend_html = """
 <div style="
 position: fixed;
-bottom: 20px; left: 10px;
-width: 140px;
+bottom: 40px; left: 40px;
+width: 160px;
 background: white;
-padding: 8px;
+padding: 10px;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0,0,0,0.2);
-font-size:12px;
+font-size:14px;
 z-index:9999;
 ">
 <b>สายมู</b><br><br>
