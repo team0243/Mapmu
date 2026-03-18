@@ -49,7 +49,14 @@ components.html("""
 with open("map.html", "r", encoding="utf-8") as f:
     map_html = f.read()
 
-components.html(map_html, height=650)
+import streamlit as st
+
+# ตรวจ mobile แบบง่าย
+is_mobile = st.sidebar.checkbox("📱 Mobile Mode", value=True)
+
+map_height = 500 if is_mobile else 700
+
+components.html(map_html, height=map_height)
 
 # -------------------------------
 # 💰 ADS (Below Map)
