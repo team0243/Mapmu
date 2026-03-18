@@ -21,8 +21,8 @@ st.sidebar.markdown("""
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("📢 สนใจโปรโมทวัด ติดต่อ:")
-st.sidebar.markdown("your@email.com")
-
+st.sidebar.markdown("kiartisak@kkumail.com")
+st.sidebar.markdown("Id Line:Team0243")
 st.sidebar.markdown("---")
 st.sidebar.markdown("© 2026 MapMu Thailand")
 
